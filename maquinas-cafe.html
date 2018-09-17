@@ -5,8 +5,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.9.1/baguetteBox.min.css">
+<link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+
+<link rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+      crossorigin="anonymous">
+      
+<link rel="stylesheet" href="css/nivo-lightbox.css">
 <link rel="stylesheet" href="css/custom.css">
 
 <link rel="icon" type="image/png" href="img/favicon.png">
@@ -15,38 +24,68 @@
 
 </head>
 
-<body class="animated fadeIn" id="top">
+<body>
+
+<!-- loading screen
+******************************************************************* -->
+
+<div id="load"></div>
+
+<div id="loading-img" class="centralized-text text-center">
+    <div class="smoke-container">
+    <svg class='svg-smoke' viewBox="0 0 44.7 70.8" enable-background="new 0 0 44.7 70.8">
+        <g>
+            <path class="smoke-path" stroke="#DF2740" stroke-width="2" stroke-miterlimit="10" d="M7,4.8C7.2,4.2,8.1,4.2,8,4.8
+            c-0.4,3.8,0.9,9.4,10.6,12.3c16.5,5,22.9,13.6,21,31.7c-0.1,0.6-1,0.8-1.1,0.3c-1.2-5.9-4.4-16.8-12.8-20.1
+            C14.2,24.6-1.2,21.3,7,4.8z"/>
+            <path class="smoke-path" stroke="#DF2740" stroke-width="2" stroke-miterlimit="10" d="M22.7,37.9c0.2-0.3,0.8-0.3,0.7,0.1
+            c-0.7,2.3-0.4,5.7,5.4,8C38.7,49.8,42,55.3,39,66.2c-0.1,0.4-0.7,0.4-0.7,0.1c-0.1-3.6-1.1-10.4-6.1-12.8
+            C25.3,50.2,15.9,47.4,22.7,37.9z"/>
+        </g>
+    </svg>
+    </div>
+    <img src="img/xicara.svg" class="z-up" width="48" alt="">
+    <br>
+    <img src="img/logo-red.svg" id="loading-logo" width="150" alt="">
+</div>
+
+
+<!-- Nav
+***************************************************** -->
+
+<div class="fixed">
+  <a class="cursor">
+    <div class="btn-toggle-nav">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </a>
+
+  <nav id="nav-mobile">
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="produtos.html">PRODUTOS</a></li>
+        <li><a href="maquinas-cafe.html" class="active">M&Aacute;QUINAS DE CAF&Eacute;</a></li>
+        <li><a href="sobre-nos.html">SOBRE N&Oacute;S</a></li>
+        <li><a href="contato.html">CONTATO</a></li>
+        <li><a href="http://www.icafebrick.com" target="_blank">LOJA VIRTUAL <i class="fas fa-external-link-alt"></i></a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- header
+***************************************************** -->
 
 <div class="bg-header">
   <div class="bg-overlay-header">
 
-    <div class="fixed">
-      <a class="cursor">
-        <div class="btn-toggle-nav">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-      </a>
-
-      <nav id="nav-mobile">
-        <ul>
-              <li><a href="index.html">HOME</a></li>
-              <li><a href="produtos.html">PRODUTOS</a></li>
-              <li><a href="maquinas-cafe.html">M&Aacute;QUINAS DE CAF&Eacute;</a></li>
-              <li><a href="http://www.icafebrick.com" target="_blank">LOJA VIRTUAL <i class="fa fa-external-link"></i></a></li>
-              <li><a href="sobre-nos.html">SOBRE N&Oacute;S</a></li>
-              <li><a href="contato.html">CONTATO</a></li>
-        </ul>
-      </nav>
-    </div>
-
-  <header>
+  <header id="top">
     <div class="container">
       <div class="row">
           <div class="col-md-6 text-center text-md-left">
             <div class="logo">
-              <a href="index.html"><img src="img/logo-white.svg" width="220" alt=""></a>
+              <a href="index.html" class="js-btn-load"><img src="img/logo-white.svg" width="220" alt=""></a>
             </div>
           </div><!-- col -->
       </div><!-- row -->
@@ -61,13 +100,30 @@
   </div><!-- overlay -->
 </div><!-- bg header -->
 
-<section class="text-center">
+
+<!-- title
+***************************************************** -->
+
+<div class="container">
+<div class="row">
+<div class="col-12 text-center text-md-left">
+<h1>Máquinas de Café</h1>
+<div class="line"></div>
+</div>
+</div>
+</div>
+
+
+<!-- main
+***************************************************** -->
+
+<main class="text-center">
 <div class="container img-fx animated fadeInUp gallery padding-content">
 
 <div class="row">
    
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/tz-coffee.jpg" title="TZ Coffee POD">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/tz-coffee.jpg" title="TZ Coffee POD">
             <img itemprop="image" src="img/produtos/maquinas/tz-coffee.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -78,7 +134,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/phedra.jpg" title="Phedra">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/phedra.jpg" title="Phedra">
             <img itemprop="image" src="img/produtos/maquinas/phedra.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -88,7 +144,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/phedra-evo.jpg" title="Phedra Evo">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/phedra-evo.jpg" title="Phedra Evo">
             <img itemprop="image" src="img/produtos/maquinas/phedra-evo.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -104,7 +160,7 @@
 <div class="row">
    
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/futurmat-f3.jpg" title="TZ Coffee POD">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/futurmat-f3.jpg" title="TZ Coffee POD">
             <img itemprop="image" src="img/produtos/maquinas/futurmat-f3.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -115,7 +171,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/mairali-arianne.jpg" title="Phedra">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/mairali-arianne.jpg" title="Phedra">
             <img itemprop="image" src="img/produtos/maquinas/mairali-arianne.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -125,7 +181,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/poema.jpg" title="Phedra Evo">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/poema.jpg" title="Phedra Evo">
             <img itemprop="image" src="img/produtos/maquinas/poema.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -141,7 +197,7 @@
 <div class="row">
    
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/leisa.jpg" title="LEI SA">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/leisa.jpg" title="LEI SA">
             <img itemprop="image" src="img/produtos/maquinas/leisa.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -151,7 +207,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/lei300.jpg" title="LEI 300">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/lei300.jpg" title="LEI 300">
             <img itemprop="image" src="img/produtos/maquinas/lei300.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -161,7 +217,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/lei400.jpg" title="LEI 400">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/lei400.jpg" title="LEI 400">
             <img itemprop="image" src="img/produtos/maquinas/lei400.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -177,7 +233,7 @@
 <div class="row">
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/lei600.jpg" title="LEI 600">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/lei600.jpg" title="LEI 600">
             <img itemprop="image" src="img/produtos/maquinas/lei600.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -187,7 +243,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/gaia.jpg" title="Gaia">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/gaia.jpg" title="Gaia">
             <img itemprop="image" src="img/produtos/maquinas/gaia.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -197,7 +253,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/gaiastyleeasy.jpg" title="Gaia Style Easy">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/gaiastyleeasy.jpg" title="Gaia Style Easy">
             <img itemprop="image" src="img/produtos/maquinas/gaiastyleeasy.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -213,7 +269,7 @@
 <div class="row">
    
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/royalgran.jpg" title="Royal Gran Crema">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/royalgran.jpg" title="Royal Gran Crema">
             <img itemprop="image" src="img/produtos/maquinas/royalgran.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -223,7 +279,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/rotary.jpg" title="Rotary">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/rotary.jpg" title="Rotary">
             <img itemprop="image" src="img/produtos/maquinas/rotary.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -233,7 +289,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/lirika.jpg" title="Lirika">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/lirika.jpg" title="Lirika">
             <img itemprop="image" src="img/produtos/maquinas/lirika.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -249,7 +305,7 @@
 <div class="row">
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/podstar.jpg" title="Podstar">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/podstar.jpg" title="Podstar">
             <img itemprop="image" src="img/produtos/maquinas/podstar.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -259,7 +315,7 @@
     </div>
 
     <div class="col-lg-4" itemscope itemtype="http://schema.org/Product">
-        <a class="hb-single" href="img/produtos/maquinas/lg/goldstar.jpg" title="goldstar">
+        <a data-lightbox-gallery="gallery" href="img/produtos/maquinas/lg/goldstar.jpg" title="goldstar">
             <img itemprop="image" src="img/produtos/maquinas/goldstar.jpg" class="rounded-circle img-fluid" alt="">
         </a>
         <br><br>
@@ -274,14 +330,17 @@
 
         <h3>Saiba Mais Sobre Nós</h3>
         <p>Oferecemos todo suporte necess&aacute;rio no ramo de caf&eacute;!</p>
-        <a href="sobre-nos.html" class="btn btn-secondary btn-sm text-uppercase">Veja Quem Somos</a>
+        <a href="sobre-nos.html" class="btn btn-secondary btn-sm text-uppercase js-btn-load">Saiba Mais</a>
     </div>
     
 </div><!-- row -->
 
 </div><!-- container -->
-</section>
+</main>
 
+
+<!-- contact
+***************************************************** -->
 
 <section class="bg-contact">
   <div class="bg-overlay-content">
@@ -297,7 +356,7 @@
 
               <h2 class="font-dosis text-lg">Atendimento Personalizado <br>
                 <a href="tel:11-98224-0929">
-                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
                 <small>11</small> 98224-0929 </a>
               </h2>
 
@@ -313,6 +372,10 @@
   </div><!-- bg-overlay-content -->
 </section>
 
+
+<!-- footer
+***************************************************** -->
+
 <footer>
   <div class="container">
     <div class="row">
@@ -324,12 +387,13 @@
 
       <div class="col-md-3 border-sides">
         <h4 class="font-dosis">Menu</h4>
-            <ul>
+            <ul class="js-footer-nav">
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="produtos.html">PRODUTOS</a></li>
-                <li><a href="maquinas-cafe.html">M&Aacute;QUINAS DE CAF&Eacute;</a></li>
-                <li><a href="http://www.icafebrick.com" target="_blank">LOJA VIRTUAL <i class="fa fa-external-link"></i></a></li>
+                <li><a href="maquinas-cafe.html" class="active">M&Aacute;QUINAS DE CAF&Eacute;</a></li>
                 <li><a href="sobre-nos.html">SOBRE N&Oacute;S</a></li>
                 <li><a href="contato.html">CONTATO</a></li>
+                <li><a href="http://www.icafebrick.com" target="_blank">LOJA VIRTUAL <i class="fas fa-external-link-alt"></i></a></li>
             </ul>
       </div><!-- col -->
 
@@ -345,7 +409,7 @@
 
       <div class="col-md-1">
         <a href="#top" class="back-top hide-me text-center">
-          <i class="fa fa-angle-double-up fa-2x"></i>
+          <i class="fas fa-angle-up fa-2x"></i>
         </a>
       </div><!-- col -->
     </div><!-- row -->
@@ -357,24 +421,39 @@
     <div class="row">
       <div class="col-md-12 text-md-right">
         <span>
-          <i class="fa fa-code"></i>
-          <a href="mailto:leandro.zambelli@yahoo.com" target="_blank">Leandro.Zambelli@yahoo.com</a>
-          <i class="fa fa-code"></i>
+          <i class="fas fa-code"></i>
+          <a href="http://lzbl.com.br" target="_blank">Feito por LZBL</a>
+          <i class="fas fa-code"></i>
         </span>
       </div><!-- col -->
     </div><!-- row -->
   </div><!-- container -->
 </div><!-- footer-bottom -->
 
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous" defer></script>
+<script>
+    
+    function getDiv(){
+        document.getElementById('load').classList.add('loading');
+        document.getElementById('load').style.display = 'block';
+        document.getElementById('loading-img').style.display = 'block';
+    }
 
-<script src="js/functions.js" defer></script>
-<script src="https://use.fontawesome.com/8ffc91859c.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.9.1/baguetteBox.js" async></script>
-<script>baguetteBox.run('.gallery');</script>
+    document.addEventListener("DOMContentLoaded", getDiv);
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script src="js/animation.js" async defer></script>
+<script src="js/functions.js" async defer></script>
+<script src="js/nivo-lightbox.js" async defer></script>
+<script>
+$(document).ready(function(){
+    $('.gallery a').nivoLightbox();
+});
+</script>
 
 </body>
 </html>

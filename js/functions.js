@@ -1,5 +1,4 @@
-/*
-    Author: Leandro.Zambelli@yahoo.com
+/*  Leandro Zambelli
 */
 
 function navMobile() {
@@ -10,14 +9,15 @@ function navMobile() {
 
     function toggleNav() {
 
-        if ($nav_mobile.style.top && $nav_mobile.style.left) {
-            $nav_mobile.style.top = null;
-            $nav_mobile.style.left = null;
-        } else {
-            $nav_mobile.style.top = 0;
-            $nav_mobile.style.left = 0;
-        }
-
+        if ($nav_mobile.style.width && $nav_mobile.style.height) {
+            
+            $nav_mobile.style.width = null;
+            $nav_mobile.style.height = null;
+            
+            } else { 
+                $nav_mobile.style.width = '300px';
+                $nav_mobile.style.height = '300px';
+            }
         $btn_toggle_nav.classList.toggle('bar-close');
     }
 
@@ -56,7 +56,7 @@ function backTopAnimation(){
          event.preventDefault();
          $('html, body').stop().animate({
              scrollTop: target.offset().top
-         }, 1000);
+         }, 600);
       }
   });
 }

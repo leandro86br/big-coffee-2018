@@ -1,20 +1,66 @@
-/*
-    Author: Leandro.Zambelli@yahoo.com
-    2017
+/* Leandro Zambelli
+*/
+
+/* Colors:
+
+Main Red   - Load screen and buttons: #bb0b24
+Dark Red   - Load screen and buttons: #A1091F
+Darker Red - Load screen and buttons: #7B0718
+Black      - Background:              #000
+White      - Text:                    #fff
+
 */
 
 @import url(https://fonts.googleapis.com/css?family=Dosis:400|Quicksand:300);
 
-html,body{height: 100%}
-body{background: #000; overflow-x: hidden}
+html,body { height: 100% }
+body { 
+    background: #000;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 hr{border-style:dashed; border-color: #333}
+
+
+/* Custom scrollbar
+*/
+
+::-webkit-scrollbar{width: 12px}
+::-webkit-scrollbar-track{background:#000}
+::-webkit-scrollbar-thumb{background:#bb0b24}
+
+
+/* Loading screen
+*/
+
+#load { display: none }
+
+#loading-img { display: none }
+
+.loading { position: fixed; top: 50%; left: 50%; margin-left: -25px; margin-top: -25px; width: 50px; height: 50px; background: #bb0b24; overflow: hidden; border-radius: 100%; z-index: 10; transition: 800ms ease; transform: scale(100) }
+
+.no-scale { transform: scale(0)!important }
+
+.centralized-text {width: 100%; position: fixed; top: 48%; left: 50%; transform: translate(-50%, -50%); z-index: 999 }
+
+.smoke-container { position: relative; top:-16px; left:-40px; height: 40px; }
+.svg-smoke { position: fixed; z-index: 11; width: 40px }
+.smoke-path{ fill: #56000C; stroke: #DF2740; stroke-dasharray: 100; animation: movingDash 8s ease; }
+
+@keyframes movingDash {
+    to { stroke-dashoffset: 1000; }
+}
 
 
 /* =Bootstrap Reset
 */
 
-.btn{border-radius: 50px; padding:14px 50px 17px 50px}
+.btn{border-radius: 50px; padding:14px 50px 17px 50px; position: relative; overflow: hidden;
+  transform: perspective(1px); border-width: 2px;}
 .btn-sm, .btn-group-sm > .btn {padding: 8px 40px 11px 40px; font-size: 0.875rem; border-radius: 50px}
 .btn-secondary{background-color: #bb0b24; border-color: #bb0b24}
 .btn-secondary:hover{background-color: #A1091F; border-color: #A1091F}
@@ -22,8 +68,21 @@ hr{border-style:dashed; border-color: #333}
 .btn-secondary.disabled, .btn-secondary:disabled {background-color: #bb0b24; border-color: #bb0b24}
 
 
-[class*="btn-outline"]{border:2px solid}
+.btn-secondary::before {
+    content: "";
+    position: absolute;
+    background: #000;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    border-radius: 50px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
 
+.btn-secondary:hover::before { transform: translateX(0); }
 
 /*= BaguetteBox Reset
 */
@@ -40,28 +99,21 @@ hr{border-style:dashed; border-color: #333}
 .baguetteBox-button:focus, .baguetteBox-button:hover {background-color: #111; outline: none}
 
 
-/* =ANIMATION
-*/
-
-.animated { animation-duration: 1s; animation-fill-mode: both; }
-.fadeIn { animation-name: fadeIn; }
-
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
 /* =CLASSES
 */
 
 .font-dosis{font-family: "Dosis", sans-serif} /* coloca a font dosis onde quiser */
 .text-lg{font-size:2.5em} /* aumenta a fonte */
 
+.line { width: 80px; height: 3px; background: #bb0b24 }
+
+@media(max-width:767px) {
+    .line { margin: 0 auto}
+}
+
 .bg-overlay-header { background: linear-gradient(to right, rgba(0,0,0,1) 35%,rgba(255,255,255,0) 100%); height: 100%; } /* overlay para o header */
-.bg-overlay-content{background: rgba(0,0,0,0.5); height: 100%} /* overlay para o conteudo de contato */
-.bg-header{ background:url(../img/bg/bg-header.jpg) no-repeat top right; background-attachment: fixed; }
+.bg-overlay-content { background: rgba(0,0,0,0.5); height: 100%} /* overlay para o conteudo de contato */
+.bg-header{ background:url(../img/bg/bg-header.jpg) no-repeat top right; background-attachment: fixed;}
 .bg-contact {background: url(../img/bg/bg-paralax.jpg) no-repeat; background-size: cover; background-attachment: fixed; color: #fff!important; text-shadow: 0 0 10px #000}
 .bg-contact a{color: #a99775}
 .bg-contact a:hover{color: #c8bda7!important}
@@ -95,28 +147,30 @@ hr{border-style:dashed; border-color: #333}
 .img-fx img:hover{transform: scale(1.1)}
 
 .relative{position: relative}
-.fixed{position: fixed; z-index: 10}
+.fixed{position: fixed; z-index: 5}
 
 .cursor{cursor: pointer} /* coloca o cursor pointer no botao da nav */
 
-.svg-top{top: -2px; left: 0; width: 100%}
-.svg-bottom {bottom: -7px; left: 0; width: 100%}
+.svg-top{top: -1px; left: 0; width: 100%}
+.svg-bottom {bottom: -1px; left: 0; width: 100%}
 
 .hide-me{visibility: hidden; opacity: 0} /* esconde o botao de voltar ao topo */
 
 /* botao de voltar ao topo */
 .back-top {
-    position:fixed;
-    bottom:50px;
-    right:20px;
-    padding:10px 15px;
+    position: fixed;
+    bottom:0;
+    right:0;
+    padding:18px 15px 12px 26px;
     background:#bb0b24;
     color:#fff;
-    border-radius:100px;
-    transition: ease 0.2s
+    border-top-left-radius: 100px;
+    transition: ease 0.2s;
+    z-index: 6;
 }
+
 .back-top:hover, .back-top:focus, .back-top:active{color:#fff}
-.back-top:hover{transition:all ease-in-out 0.1s; background:#111}
+.back-top:hover{ background:#111 }
 
 .centralized-logo { position: absolute; top:50%; margin-top: -31px} /* centraliza o logo no footer */
 
@@ -138,9 +192,9 @@ h5{margin:2px 0 4px 0; color: #fff; font-size: 0.95em}
 p{color: #eee; font-size: 1.1em; font-family: 'Quicksand', sans-serif; }
 
 a{color: #eee; transition: all linear .1s}
-a:hover{color: #bd2130}
+a:hover{color: #bb0b24}
 
-a[href^="tel:"]:hover, a[href^="mailto:"]:hover {text-decoration: none; color: #bd2130}
+a[href^="tel:"]:hover, a[href^="mailto:"]:hover {text-decoration: none; color: #bb0b24}
 
 
 /* =Header and Nav
@@ -148,24 +202,26 @@ a[href^="tel:"]:hover, a[href^="mailto:"]:hover {text-decoration: none; color: #
 
 .logo{margin-top: 190px}
 
+.logo { position: relative;}
+
 @media (max-width:767px){
     .logo{margin: 100px 0 20px 0}
 }
 
-nav {position: absolute; top: -350px; left: -350px; z-index: 1; width: 300px; height: 300px; overflow: hidden; background: #fff; transition: ease-in 0.4s; border-bottom-right-radius: 100%}
+nav { position: absolute; top: 0; left: 0; z-index: 1; width: 30px; height: 30px; overflow: hidden; background: #fff; transition: ease 0.4s; border-bottom-right-radius: 100%; }
 nav ul{list-style: none; margin-top: 0; padding: 64px 0 0 20px}
 nav li{display: block; text-align: left;}
-nav a {font-family: 'Quicksand', sans-serif; display: block; padding:6px 0; font-weight: 300; color: #000; font-size: 0.9em; }
+nav a {font-family: 'Dosis', sans-serif; display: block; padding:4px 0; font-weight: 400; color: #000; font-size: 1em; }
 nav a:hover{color: #bd2130; text-decoration: none}
-nav a:active{color: darkred}
+nav a:active, a.active{color: #DF2740}
 
 
 /* =nav button and bars
 */
 
-.btn-toggle-nav {position: absolute; top: 0; left: 0; padding:14px 29px 28px 11px; background: #bb0b24; border-bottom-right-radius: 100px; z-index: 2}
+.btn-toggle-nav { position: absolute; top: 0; left: 0; padding:14px 29px 28px 11px; background: #bb0b24; border-bottom-right-radius: 100px; z-index: 2}
 
-.bar{display: block; margin:3px 0; width: 24px; height: 3px; background:#fff; transition: ease-in 0.3s}
+.bar { display: block; margin: 3px 0; width: 24px; height: 3px; background:#fff; transition: ease-in 0.3s }
 
 .bar-close{background: #000}
 .bar-close .bar:nth-child(1) {-webkit-transform:rotate(45deg) translate(5px,4px); transform: rotate(45deg) translate(5px,4px); background:#fff;}
@@ -179,7 +235,7 @@ nav a:active{color: darkred}
 footer{padding: 70px 0; background: #000; color: #fff}
 footer ul{list-style: none; margin-top: 10px; padding: 0; font-weight: 300}
 footer a{color: #fff; font-size: 0.85em}
-footer a:hover{color: #bd2130; text-decoration: none}
+footer a:hover{color: #bb0b24; text-decoration: none}
 
 @media (max-width: 767px) {
     footer [class*="col"]{margin-bottom: 30px}
